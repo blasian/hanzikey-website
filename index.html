@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HanziKey — Read Chinese anywhere on your Mac</title>
+  <meta name="description" content="Pop-up Mandarin dictionary for macOS. Hover for definitions. Drag-to-translate. Fully on-device — no accounts, no servers, no analytics.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" href="screenshots/icon.png" type="image/png">
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --fg: #f5f5f7;
+      --fg-muted: #9aa0a6;
+      --accent: #4f8cff;
+      --accent-soft: #1a2540;
+      --card: #14171f;
+      --border: #232733;
+      --max-width: 1100px;
+      --radius: 12px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ffffff;
+        --fg: #1d1d1f;
+        --fg-muted: #6b7280;
+        --accent: #2563eb;
+        --accent-soft: #e7efff;
+        --card: #f6f7fb;
+        --border: #e5e7eb;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-font-smoothing: antialiased; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      color: var(--fg);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+
+    header {
+      padding: 28px 0 8px;
+    }
+    header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--fg);
+    }
+    .brand img { width: 32px; height: 32px; border-radius: 7px; }
+    nav a {
+      margin-left: 22px;
+      color: var(--fg-muted);
+      font-size: 14px;
+    }
+    nav a:hover { color: var(--fg); text-decoration: none; }
+
+    .hero {
+      padding: 60px 0 80px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      line-height: 1.05;
+      margin: 0 0 18px;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+    }
+    .hero .tag {
+      color: var(--fg-muted);
+      font-size: clamp(16px, 2vw, 20px);
+      max-width: 640px;
+      margin: 0 auto 36px;
+    }
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.05s ease, background 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); text-decoration: none; }
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+    .btn-primary:hover { background: #3b75e8; }
+    .btn-secondary {
+      background: transparent;
+      color: var(--fg);
+      border-color: var(--border);
+    }
+    .btn-secondary:hover { background: var(--card); }
+    .meta-line {
+      color: var(--fg-muted);
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
+    .hero-screenshot {
+      margin-top: 60px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.5),
+                  0 0 0 1px var(--border);
+    }
+    .hero-screenshot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+    section h2 {
+      font-size: clamp(26px, 4vw, 36px);
+      margin: 0 0 14px;
+      letter-spacing: -0.01em;
+    }
+    section .sub {
+      color: var(--fg-muted);
+      max-width: 640px;
+      margin: 0 0 48px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+    .feature {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .feature .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      margin-bottom: 14px;
+      font-size: 18px;
+    }
+    .feature h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+    .feature p {
+      margin: 0;
+      color: var(--fg-muted);
+      font-size: 14px;
+    }
+    .feature kbd {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      padding: 2px 6px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--fg-muted);
+      margin-right: 4px;
+    }
+
+    .privacy {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .privacy-point {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .privacy-point .dot {
+      color: var(--accent);
+      flex: 0 0 auto;
+      margin-top: 2px;
+    }
+    .privacy-point span {
+      color: var(--fg-muted);
+      font-size: 14px;
+    }
+
+    .requirements {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      color: var(--fg-muted);
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 40px 0 60px;
+      color: var(--fg-muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+    }
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a href="/" class="brand">
+        <img src="screenshots/icon.png" alt="" onerror="this.style.display='none'">
+        HanziKey
+      </a>
+      <nav>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <h1>Read Chinese anywhere on your Mac.</h1>
+      <p class="tag">
+        Hover any Chinese word for an instant definition. Drag-select a region for a full translation. Everything runs locally — no accounts, no servers, no analytics.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#download">
+          Download for macOS
+        </a>
+      </div>
+      <p class="meta-line">Free · macOS 15 (Sequoia) or later · Apple Silicon &amp; Intel</p>
+
+      <div class="hero-screenshot">
+        <!--
+          Drop a screenshot at screenshots/hero.png — recommended ~1600x1000.
+          For now this falls back to a placeholder background.
+        -->
+        <img src="screenshots/hero.png"
+             alt="HanziKey reading Chinese text with the hover dictionary panel open"
+             onerror="this.style.display='none'; this.parentElement.style.background='var(--card)'; this.parentElement.style.aspectRatio='16/10'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.innerHTML='<span style=&quot;color:var(--fg-muted);font-size:14px&quot;>screenshots/hero.png</span>';">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Four ways to read Chinese.</h2>
+      <p class="sub">
+        HanziKey lives in your menu bar and reaches into any app on your Mac — browsers, PDFs, video subtitles, foreign-language software UIs.
+      </p>
+      <div class="features">
+        <div class="feature">
+          <div class="icon">⌖</div>
+          <h3>Hover Dictionary</h3>
+          <p>
+            <kbd>⌘⇧I</kbd> Pick a source — region, screen, or window — then hover any Chinese word for instant pinyin + definitions.
+          </p>
+        </div>
+        <div class="feature">
+          <div class="icon">☰</div>
+          <h3>Translate Region</h3>
+          <p>
+            <kbd>⌘⇧O</kbd> Drag-select a paragraph anywhere on screen. See the full translation plus a word-by-word breakdown.
+          </p>
+        </div>
+        <div class="feature">
+          <div class="icon">↩</div>
+          <h3>Selection Lookup</h3>
+          <p>
+            <kbd>⌘⇧Y</kbd> Select Chinese in any app, press the hotkey. Pinyin, tone-colored characters, and CC-CEDICT definitions.
+          </p>
+        </div>
+        <div class="feature">
+          <div class="icon">阿</div>
+          <h3>Pinyin Conversion</h3>
+          <p>
+            <kbd>⌘⇧P</kbd> Turn numbered pinyin (<em>ni3 hao3</em>) into tone marks (<em>nǐ hǎo</em>) in any text field.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="privacy">
+    <div class="wrap">
+      <h2>Built for privacy.</h2>
+      <p class="sub">
+        HanziKey uses Apple's on-device Vision framework for OCR and Apple Translate for sentence-level translations. Nothing about what you read leaves your Mac.
+      </p>
+      <div class="privacy-grid">
+        <div class="privacy-point"><span class="dot">●</span><span>No accounts. No login. No cloud sync.</span></div>
+        <div class="privacy-point"><span class="dot">●</span><span>No analytics, no telemetry, no crash reporting.</span></div>
+        <div class="privacy-point"><span class="dot">●</span><span>Captured screen regions are processed on-device and discarded immediately.</span></div>
+        <div class="privacy-point"><span class="dot">●</span><span>CC-CEDICT dictionary ships with the app — works offline.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="wrap">
+      <h2>Download.</h2>
+      <p class="sub">
+        Direct download is signed and notarized by Apple.
+      </p>
+      <div class="cta-row" style="justify-content: flex-start;">
+        <!-- TODO: replace with the real .dmg URL once notarized -->
+        <a class="btn btn-primary" href="#"
+           onclick="alert('DMG link coming soon — replace this href with the notarized download.'); return false;">
+          Download HanziKey.dmg
+        </a>
+      </div>
+      <p class="meta-line">
+        After first launch, HanziKey asks for Accessibility and Screen Recording permission. Both are used only when you press a hotkey, and both can be revoked at any time in System Settings → Privacy &amp; Security.
+      </p>
+      <div class="requirements" style="margin-top: 32px;">
+        <div><strong>macOS:</strong> 15.0 (Sequoia) or later</div>
+        <div><strong>Architecture:</strong> Apple Silicon &amp; Intel</div>
+        <div><strong>Disk:</strong> ~20 MB installed</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div>© <span id="year"></span> Michael Spearman · <a href="mailto:mikespearman.e@gmail.com">mikespearman.e@gmail.com</a></div>
+      <div>
+        <a href="support.html">Support</a> ·
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
