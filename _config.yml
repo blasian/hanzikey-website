@@ -1,3 +1,19 @@
 title: HanziKey
-description: Pop-up Mandarin dictionary for macOS
-theme: jekyll-theme-minimal
+description: Pop-up Mandarin dictionary for macOS. Hover for definitions. Drag-to-translate. Fully on-device.
+url: https://www.hanzikey.com
+
+# Tell Jekyll to use the local _layouts/default.html for any page
+# whose frontmatter doesn't specify a layout — so support.md and
+# privacy.md pick it up automatically.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# Don't process these as Jekyll content.
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

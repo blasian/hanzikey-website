@@ -1,0 +1,479 @@
+/* =========================================================
+   HanziKey site styles
+   Shared by index.html (landing) and Jekyll-rendered pages
+   (support.md / privacy.md) via the default layout.
+   ========================================================= */
+
+/* ---------- Design tokens ----------
+   Theme is built around the HanziKey app icon: a warm cream
+   background with deep ink-colored text. Accent picks up the
+   "seal red" of a traditional Chinese name stamp so it feels
+   tied to the subject matter without being clichéd. */
+
+:root {
+  /* Light theme — page reads as warm ivory so the icon's deeper
+     cream body stays visually distinct when it appears on the page. */
+  --bg: #fcfaf2;          /* warm ivory, lighter than the icon body */
+  --fg: #2a2520;          /* warm near-black */
+  --fg-muted: #7a6f5f;
+  --fg-tertiary: #a89b85;
+  --accent: #b8453a;      /* seal-stamp red */
+  --accent-hover: #9a352c;
+  --accent-soft: #f7e2dc; /* tinted card backdrop for accent areas */
+  --card: #f5edd6;        /* warmer than bg — same family as the icon body */
+  --card-hover: #efe2c1;
+  --border: #ece2c8;
+  --border-strong: #d6c9aa;
+  --code-bg: #f2e8d0;
+
+  --max-width: 1100px;
+  --content-width: 720px;
+  --radius-sm: 6px;
+  --radius: 12px;
+  --radius-lg: 16px;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 80px;
+
+  /* Heading font — a warm serif suits the calligraphic vibe;
+     falls back through the macOS / iOS system serif stack. */
+  --font-display: ui-serif, "New York", "Iowan Old Style", "Apple Garamond",
+                  "Hoefler Text", Georgia, "Times New Roman", serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+               "Helvetica Neue", Arial, sans-serif;
+}
+
+/* No dark-mode override.
+   HanziKey's brand is the warm cream of its app icon, so the site
+   serves the same parchment look regardless of the visitor's system
+   color scheme. Users who strongly prefer dark mode can use Reader
+   Mode in Safari / a dark-mode browser extension if needed. */
+
+/* ---------- Reset + base ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  -webkit-font-smoothing: antialiased;
+  /* Tell the browser the site is light-only so scrollbars, form
+     controls, and any browser chrome that auto-themes uses light
+     defaults instead of dark mode against the cream backdrop. */
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.55;
+}
+
+/* Headings everywhere on the site lean on the serif stack for a
+   warmer, more literary feel that matches the icon's character. */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--fg);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; height: auto; }
+
+/* ---------- Layout primitives ---------- */
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.wrap-narrow {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+section { padding: var(--space-2xl) 0; }
+
+section h2 {
+  font-size: clamp(26px, 4vw, 36px);
+  margin: 0 0 14px;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+section .sub {
+  color: var(--fg-muted);
+  max-width: 640px;
+  margin: 0 0 var(--space-xl);
+}
+
+/* ---------- Header ---------- */
+
+.site-header { padding: 28px 0 8px; }
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--fg);
+  letter-spacing: -0.005em;
+}
+.brand img {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  /* Tiny shadow so the icon's edges read clearly against the
+     warm ivory background — without this the cream icon body
+     blurs into the page. */
+  box-shadow: 0 1px 3px rgba(60, 40, 20, 0.12),
+              0 0 0 0.5px rgba(60, 40, 20, 0.08);
+}
+.brand:hover { text-decoration: none; }
+
+.site-nav a {
+  margin-left: 22px;
+  color: var(--fg-muted);
+  font-size: 14px;
+}
+.site-nav a:hover {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 22px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.05s ease, background 0.15s ease, border-color 0.15s ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-secondary {
+  background: transparent;
+  color: var(--fg);
+  border-color: var(--border);
+}
+.btn-secondary:hover {
+  background: var(--card);
+  border-color: var(--border-strong);
+}
+
+/* "Coming soon" placeholder — looks like a button but isn't
+   clickable. Muted to clearly signal "not yet available." */
+.btn-disabled {
+  cursor: default;
+  opacity: 0.75;
+  color: var(--fg-muted);
+}
+.btn-disabled:hover {
+  transform: none;
+  background: transparent;
+  border-color: var(--border);
+}
+
+.cta-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.cta-row.cta-row-left { justify-content: flex-start; }
+
+.meta-line {
+  color: var(--fg-muted);
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: 60px 0 var(--space-2xl);
+  text-align: center;
+}
+.hero h1 {
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1.05;
+  margin: 0 0 18px;
+  letter-spacing: -0.018em;
+  font-weight: 600;
+  /* Prevents the last word (.e.g "Mac.") from dangling on its own
+     line. The browser distributes words evenly across lines instead
+     of greedily filling the first line. Safari 17.5+, Chrome 114+. */
+  text-wrap: balance;
+}
+.hero .tag {
+  color: var(--fg-muted);
+  font-size: clamp(16px, 2vw, 20px);
+  max-width: 640px;
+  margin: 0 auto 36px;
+  text-wrap: pretty; /* avoids single-word last line on the subhead */
+}
+
+.hero-screenshot {
+  margin: 60px auto 0;
+  /* Constrain the hero to a slightly smaller width than the page
+     wrap so the screenshot doesn't feel like it overpowers the
+     headline above it. */
+  max-width: 880px;
+  /* No border-radius / outline-ring on the wrapper — the PNG
+     already includes the macOS window's own rounded corners and
+     edges, so layering another frame on top makes two fighting
+     borders show in the corners. Just float the screenshot on a
+     soft warm drop shadow. */
+}
+.hero-screenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Apply the drop shadow to the image itself via filter so it
+     follows the PNG's actual silhouette (including its rounded
+     window corners) instead of a square wrapper. */
+  filter: drop-shadow(0 24px 40px rgba(60, 40, 20, 0.22));
+}
+
+/* ---------- Alternating feature sections ----------
+   Each .feature-row holds a 2-column grid: a screenshot on one
+   side, prose + a hotkey badge on the other. Adding the
+   .feature-row-reverse modifier flips which side the image sits
+   on, so the eye zig-zags down the page. */
+
+.feature-row { padding: var(--space-2xl) 0; }
+
+/* Widen the .wrap on feature rows specifically so the screenshots
+   get more horizontal room than the headline-driven hero needs.
+   Other sections (hero, download, footer) keep the standard
+   1100px max width. */
+.feature-row > .wrap {
+  max-width: 1240px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.feature-row-reverse .feature-grid > .feature-art {
+  order: 2; /* push image to the right side on reverse rows */
+}
+
+.feature-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  /* Same warm drop-shadow treatment as the hero — uses filter so
+     the shadow follows the image's actual alpha (including any
+     transparent corners on a window screenshot). */
+  filter: drop-shadow(0 18px 32px rgba(60, 40, 20, 0.18));
+}
+
+.feature-text h2 {
+  font-size: clamp(24px, 3.2vw, 34px);
+  margin: 0 0 14px;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+.feature-text p {
+  margin: 0 0 var(--space-md);
+  color: var(--fg);
+  font-size: 16px;
+}
+.feature-text p:last-child { margin-bottom: 0; }
+
+.kbd-line {
+  color: var(--fg-muted);
+  font-size: 14px;
+}
+.kbd-line kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  padding: 3px 7px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+  color: var(--fg);
+  margin-right: 6px;
+}
+
+.privacy-list {
+  margin: var(--space-md) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.privacy-list li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--fg-muted);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.privacy-list li::before {
+  content: "●";
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 10px;
+  line-height: inherit;
+  transform: translateY(2px);
+}
+
+/* ---------- Tonal band background (used by the privacy section) ---------- */
+
+.privacy-band {
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ---------- Responsive: stack feature rows on narrow viewports ---------- */
+
+@media (max-width: 760px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  /* On stacked mobile layout the alternation no longer helps —
+     image-first reads more naturally as a caption pattern. */
+  .feature-row-reverse .feature-grid > .feature-art {
+    order: 0;
+  }
+}
+
+/* ---------- Requirements / spec rows ---------- */
+
+.requirements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  color: var(--fg-muted);
+  font-size: 14px;
+}
+.requirements strong { color: var(--fg); font-weight: 600; }
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  padding: var(--space-xl) 0 60px;
+  color: var(--fg-muted);
+  font-size: 13px;
+  border-top: 1px solid var(--border);
+}
+.site-footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ---------- Markdown content (support / privacy / etc.) ----------
+   Applied to the `.content` wrapper in _layouts/default.html so
+   Jekyll-rendered .md pages get consistent typography that matches
+   the landing chrome. */
+
+.content {
+  padding: var(--space-2xl) 0;
+}
+.content h1 {
+  font-size: clamp(30px, 4vw, 40px);
+  margin: 0 0 18px;
+  letter-spacing: -0.015em;
+}
+.content h2 {
+  font-size: clamp(20px, 3vw, 26px);
+  margin: var(--space-xl) 0 12px;
+  letter-spacing: -0.01em;
+}
+.content h3 {
+  font-size: 17px;
+  margin: var(--space-lg) 0 8px;
+  font-weight: 600;
+}
+.content p,
+.content li {
+  color: var(--fg);
+  font-size: 15px;
+}
+.content p { margin: 0 0 var(--space-md); }
+.content ul,
+.content ol {
+  margin: 0 0 var(--space-md);
+  padding-left: 22px;
+}
+.content li { margin-bottom: 4px; }
+.content li::marker { color: var(--fg-muted); }
+.content a { color: var(--accent); }
+.content strong { color: var(--fg); font-weight: 600; }
+.content em { color: var(--fg); }
+.content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: var(--space-xl) 0;
+}
+.content blockquote {
+  margin: 0 0 var(--space-md);
+  padding-left: 14px;
+  border-left: 3px solid var(--border-strong);
+  color: var(--fg-muted);
+}
+.content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.92em;
+  padding: 1px 6px;
+  background: var(--code-bg);
+  border-radius: var(--radius-sm);
+}
+.content pre {
+  background: var(--code-bg);
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  margin: 0 0 var(--space-md);
+}
+.content pre code {
+  background: transparent;
+  padding: 0;
+}
+.content .meta {
+  color: var(--fg-muted);
+  font-size: 13px;
+  margin-top: -8px;
+  margin-bottom: var(--space-lg);
+}

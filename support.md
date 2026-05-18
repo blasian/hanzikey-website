@@ -20,18 +20,6 @@ The four hotkeys, at a glance:
   a source (region, screen, or window) and hover words for
   definitions, or toggle to Passage view for the full translation.
 
-## Get in touch
-
-Email **mikespearman.e@gmail.com**
-
-Please include:
-
-- Your macOS version (Apple menu → About This Mac)
-- The HanziKey version (HanziKey menu bar → Settings → bottom of window)
-- A brief description of what you were trying to do
-
-I read every message.
-
 ## Common questions
 
 ### The translation popup doesn't appear when I press ⌘⇧Y

@@ -73,6 +73,3 @@ If this policy ever changes, the new version will be posted at this
 URL with an updated revision date. Material changes will be noted in
 the app's release notes.
 
-## Contact
-
-Questions about this policy? Email **mikespearman.e@gmail.com**.
