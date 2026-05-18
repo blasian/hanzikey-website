@@ -6,19 +6,22 @@ title: HanziKey Support
 
 HanziKey is a pop-up Mandarin dictionary for macOS. Look up Chinese
 in any app via selection hotkey, drag-region translate, or
-cursor-driven hover dictionary — fully on your Mac.
+cursor-driven hover dictionary. Fully on your Mac.
 
-The four hotkeys, at a glance:
+The three hotkeys, at a glance:
 
-- **⌘⇧Y — Show Translation Popup for Selected Text.** Select text in
+- **⌘⇧Y: Show Translation Popup for Selected Text.** Select text in
   any app and press this for a breakdown popup.
-- **⌘⇧P — Convert Numbered Pinyin to Tone Marks.** Turn `ni3 hao3`
-  into `nǐ hǎo` in any editable text field.
-- **⌘⇧O — Translate Region.** Drag-select a rectangle on screen and
+- **⌘⇧O: Translate Region.** Drag-select a rectangle on screen and
   see a full translation plus per-word breakdown.
-- **⌘⇧I — Translate Source.** Open the unified reading panel; pick
+- **⌘⇧I: Translate Source.** Open the unified reading panel; pick
   a source (region, screen, or window) and hover words for
   definitions, or toggle to Passage view for the full translation.
+
+There's also an optional fourth hotkey, **Convert Numbered Pinyin to
+Tone Marks**, that turns `ni3 hao3` into `nǐ hǎo` in any editable
+text field. It's disabled by default; enable and bind it from the
+menu bar icon → Settings → Hotkeys if you want it.
 
 ## Common questions
 
@@ -40,12 +43,12 @@ These need Screen Recording permission.
 
 1. Open **System Settings → Privacy & Security → Screen Recording**
 2. Toggle HanziKey on
-3. **Quit and relaunch HanziKey** — macOS doesn't apply the new permission
-   to a running app
+3. **Quit and relaunch HanziKey.** macOS doesn't apply the new permission
+   to a running app.
 
 ### I downloaded from the Mac App Store but already had the DMG installed (or vice versa)
 
-That's fine — both builds use the same bundle identifier and the same
+That's fine. Both builds use the same bundle identifier and the same
 on-disk settings. One small wrinkle: macOS keys Accessibility and
 Screen Recording permissions by the binary's signing fingerprint, and
 the App Store version and DMG version sign with different certificates.

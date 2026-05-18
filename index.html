@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HanziKey — Read Chinese anywhere on your Mac</title>
-  <meta name="description" content="Pop-up Mandarin dictionary for macOS. Hover for definitions. Drag-to-translate. Fully on-device — no accounts, no servers, no analytics.">
+  <title>HanziKey: Read Chinese anywhere on your Mac</title>
+  <meta name="description" content="Pop-up Mandarin dictionary for macOS. Hover for definitions, select a region to translate, or highlight text for a breakdown. Works in any app, offline.">
   <meta name="theme-color" content="#0a0a0a">
   <link rel="icon" href="/screenshots/icon.png" type="image/png">
   <link rel="apple-touch-icon" href="/screenshots/icon.png">
@@ -25,10 +25,13 @@
   </header>
 
   <section class="hero">
-    <div class="wrap">
+    <div class="wrap hero-intro">
       <h1>Read Chinese anywhere on&nbsp;your&nbsp;Mac.</h1>
       <p class="tag">
-        Hover any Chinese word for an instant definition. Drag-select a region for a full translation. Everything runs locally — no accounts, no servers, no analytics.
+        Hover any Chinese word for an instant definition, select a
+        region for a full translation, or highlight text for a
+        tone-colored breakdown. Works in any app. Everything runs
+        locally. No accounts, no tracking, works offline.
       </p>
       <div class="cta-row">
         <span class="btn btn-secondary btn-disabled" aria-disabled="true">
@@ -36,17 +39,58 @@
         </span>
       </div>
       <p class="meta-line">Free · macOS 15 (Sequoia) or later · Apple Silicon &amp; Intel</p>
+    </div>
 
-      <div class="hero-screenshot">
+    <div class="wrap hero-grid">
+      <div class="hero-art">
         <img src="screenshots/hover.png"
              alt="HanziKey hover dictionary panel showing a definition for the highlighted word in a Chinese article">
+      </div>
+      <div class="hero-text">
+        <div class="hero-caption">
+          <h3>Hover mode.</h3>
+          <p>
+            Pick a region, the whole screen, or a specific window as
+            your source. Move your cursor across any Chinese text and
+            HanziKey highlights each word on screen, showing its pinyin
+            and definition in a floating panel.
+          </p>
+          <p class="kbd-line">
+            <kbd>⌘⇧I</kbd> Best for web pages, e-books, and anywhere you
+            read at your own pace.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Alternating feature sections. Each row: screenshot on one
-       side, prose + hotkey badge on the other. Sides alternate
-       so the eye sweeps left-right down the page. -->
+  <!-- The hero above demonstrates hover mode (cursor + highlight +
+       popup), so we don't repeat it here. The two rows below cover
+       the other two modes; the privacy band closes the page.
+       Hero is image-left so the rows alternate starting from image-
+       right to maintain the zig-zag pattern. -->
+
+  <section class="feature-row feature-row-reverse">
+    <div class="wrap feature-grid">
+      <div class="feature-art">
+        <img src="screenshots/subtitles.png"
+             alt="HanziKey translating a Chinese movie subtitle with per-word pinyin and a full English translation">
+      </div>
+      <div class="feature-text">
+        <h2>Passage mode.</h2>
+        <p>
+          Drag-select a region and HanziKey returns the full English
+          translation, with a word-by-word breakdown underneath. Turn on
+          auto-rescan for live subtitles or anything that updates on
+          screen.
+        </p>
+        <p class="kbd-line">
+          <kbd>⌘⇧O</kbd> Best for video subtitles, screenshots, and
+          foreign-language UI.
+        </p>
+      </div>
+    </div>
+  </section>
 
   <section class="feature-row">
     <div class="wrap feature-grid">
@@ -55,41 +99,22 @@
              alt="HanziKey breakdown popup over an iMessage conversation, with each word tone-colored and a definition expanded for one of them">
       </div>
       <div class="feature-text">
-        <h2>Every word, color-coded.</h2>
+        <h2>Text-select mode.</h2>
         <p>
-          Select a Chinese sentence in any app — HanziKey lays out each
-          character with its tone color, the pinyin underneath, and the
-          full English translation. Click any character to expand its
-          CC-CEDICT entry right in the popup.
+          Highlight Chinese in any app, press the hotkey, and HanziKey
+          returns a tone-colored breakdown with pinyin, CC-CEDICT
+          definitions, and the full English translation. No OCR, just
+          instant lookup of whatever you can select.
         </p>
         <p class="kbd-line">
-          <kbd>⌘⇧Y</kbd> Look up any selected Chinese in any app.
+          <kbd>⌘⇧Y</kbd> Best for iMessage, Slack, copy-pasteable PDFs,
+          and search results.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="feature-row feature-row-reverse">
-    <div class="wrap feature-grid">
-      <div class="feature-art">
-        <img src="screenshots/subtitles.png"
-             alt="HanziKey live-translating Chinese subtitles on a video">
-      </div>
-      <div class="feature-text">
-        <h2>Read foreign-language video.</h2>
-        <p>
-          Pin HanziKey over any video player. The breakdown panel re-OCRs the
-          subtitle area every half-second, so the per-word pinyin + English
-          translation refresh as the scene moves.
-        </p>
-        <p class="kbd-line">
-          <kbd>⌘⇧I</kbd> Pin to the video window with auto-rescan on.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="feature-row privacy-band">
+  <section class="feature-row feature-row-reverse privacy-band">
     <div class="wrap feature-grid">
       <div class="feature-art">
         <img src="screenshots/privacy-settings.png"

@@ -39,10 +39,10 @@ or transmit any personal data. No accounts, no servers, no analytics.
 HanziKey requests two macOS privacy permissions, each used only when
 you explicitly trigger the corresponding feature:
 
-- **Accessibility** — used to simulate ⌘C and read your selected
+- **Accessibility**: used to simulate ⌘C and read your selected
   text when you press the translation hotkey. Without this permission,
   selection translation is disabled.
-- **Screen Recording** — used to capture the region you drag-select
+- **Screen Recording**: used to capture the region you drag-select
   when you press a screen capture hotkey. Without this permission, the
   OCR features are disabled.
 

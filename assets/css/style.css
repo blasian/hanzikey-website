@@ -219,11 +219,29 @@ section .sub {
   margin-top: 6px;
 }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero ----------
+   Headline block sits centered above a 2-column row that mirrors
+   the feature rows below (image + caption). This keeps the H1
+   bold and unconstrained while the image-caption pairing
+   establishes the page's zig-zag rhythm. */
 
 .hero {
   padding: 60px 0 var(--space-2xl);
+}
+.hero-intro {
   text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+.hero .wrap.hero-grid {
+  /* Use the same widened wrap as feature rows so screenshot has
+     room to breathe. */
+  max-width: 1240px;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 56px;
+  align-items: center;
 }
 .hero h1 {
   font-size: clamp(36px, 6vw, 64px);
@@ -231,39 +249,68 @@ section .sub {
   margin: 0 0 18px;
   letter-spacing: -0.018em;
   font-weight: 600;
-  /* Prevents the last word (.e.g "Mac.") from dangling on its own
-     line. The browser distributes words evenly across lines instead
-     of greedily filling the first line. Safari 17.5+, Chrome 114+. */
+  /* Prevents the last word (e.g. "Mac.") from dangling on its own
+     line. Safari 17.5+, Chrome 114+. */
   text-wrap: balance;
 }
 .hero .tag {
   color: var(--fg-muted);
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: clamp(16px, 1.7vw, 19px);
   max-width: 640px;
-  margin: 0 auto 36px;
-  text-wrap: pretty; /* avoids single-word last line on the subhead */
+  margin: 0 auto 32px;
+  text-wrap: pretty;
+}
+.hero .cta-row {
+  justify-content: center;
+  margin: 0 0 10px;
+}
+.hero .meta-line {
+  text-align: center;
+  margin: 0;
 }
 
-.hero-screenshot {
-  margin: 60px auto 0;
-  /* Constrain the hero to a slightly smaller width than the page
-     wrap so the screenshot doesn't feel like it overpowers the
-     headline above it. */
-  max-width: 880px;
-  /* No border-radius / outline-ring on the wrapper — the PNG
-     already includes the macOS window's own rounded corners and
-     edges, so layering another frame on top makes two fighting
-     borders show in the corners. Just float the screenshot on a
-     soft warm drop shadow. */
-}
-.hero-screenshot img {
+.hero-art img {
   display: block;
   width: 100%;
   height: auto;
-  /* Apply the drop shadow to the image itself via filter so it
-     follows the PNG's actual silhouette (including its rounded
-     window corners) instead of a square wrapper. */
   filter: drop-shadow(0 24px 40px rgba(60, 40, 20, 0.22));
+}
+
+.hero-caption {
+  /* Caption for the hero image — sits to the right of the screenshot
+     in the same column rhythm as the feature rows below. */
+  margin: 0;
+}
+.hero-caption h3 {
+  font-size: clamp(22px, 2.6vw, 28px);
+  font-weight: 600;
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+}
+.hero-caption p {
+  margin: 0 0 var(--space-md);
+  color: var(--fg);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.hero-caption .kbd-line {
+  color: var(--fg-muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Stack vertically on narrow viewports so the page still reads
+   sensibly on mobile. Image first so the visual lands above the
+   pitch, matching mobile-marketing conventions. */
+@media (max-width: 760px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    text-align: center;
+  }
+  .hero .cta-row { justify-content: center; }
+  .hero .meta-line { text-align: center; }
+  .hero-caption { text-align: center; }
 }
 
 /* ---------- Alternating feature sections ----------
