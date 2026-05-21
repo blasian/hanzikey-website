@@ -59,8 +59,9 @@ HanziKey on in both Privacy lists and quit / relaunch the app.
 
 HanziKey uses [CC-CEDICT](https://cc-cedict.org/) for dictionary data, which
 is a community-maintained dataset. Occasionally entries have gaps or
-unusual definitions. Email me the word and I'll either flag it for the
-CC-CEDICT maintainers or note the limitation in a future update.
+unusual definitions. Email me at michael@hanzikey.com and I'll either
+flag the word for the CC-CEDICT maintainers or note the limitation in a
+future update.
 
 ### The hotkey conflicts with another app
 
@@ -86,3 +87,10 @@ See the [privacy policy](privacy.html) for details on data handling.
 
 Short version: nothing leaves your Mac. No accounts, no servers, no
 analytics.
+
+## Contact
+
+Bug reports, feature requests, missing dictionary entries, or just
+general feedback — email michael@hanzikey.com. HanziKey is built and
+maintained by one person, so responses may take a day or two, but
+every email gets read.
