@@ -413,6 +413,79 @@ section .sub {
   border-bottom: 1px solid var(--border);
 }
 
+/* ---------- Comparison band (positions HanziKey relative to
+   browser-extension alternatives like Zhongwen Dictionary and
+   Language Reactor) ---------- */
+
+.comparison .wrap {
+  max-width: 960px;
+}
+.comparison h2 {
+  font-size: clamp(26px, 3.6vw, 36px);
+  margin: 0 0 12px;
+  letter-spacing: -0.012em;
+  text-align: center;
+  text-wrap: balance;
+}
+.comparison-intro {
+  color: var(--fg-muted);
+  font-size: clamp(15px, 1.6vw, 17px);
+  margin: 0 auto var(--space-xl);
+  max-width: 620px;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.comparison-table {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg);
+}
+.comparison-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+.comparison-table thead th {
+  text-align: center;
+  font-weight: 600;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-strong);
+  color: var(--fg);
+}
+.comparison-table thead th:first-child {
+  text-align: left;
+}
+.comparison-table tbody th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--fg);
+  padding: 14px 16px;
+  width: 38%;
+}
+.comparison-table tbody td {
+  text-align: center;
+  padding: 14px 16px;
+  color: var(--fg-muted);
+}
+.comparison-table tbody tr + tr th,
+.comparison-table tbody tr + tr td {
+  border-top: 1px solid var(--border);
+}
+.comparison-table .hanzikey-col {
+  background: var(--card);
+  color: var(--fg);
+  font-weight: 500;
+}
+.comparison-table .check {
+  color: var(--accent);
+  font-weight: 700;
+}
+.comparison-table .dash {
+  color: var(--fg-tertiary);
+}
+
 /* ---------- Responsive: stack feature rows on narrow viewports ---------- */
 
 @media (max-width: 760px) {
