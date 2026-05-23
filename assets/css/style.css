@@ -439,11 +439,21 @@ section .sub {
 .comparison-table {
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  overflow: hidden;
+  /* Horizontal scroll on narrow viewports — the four-column layout
+     (label + 3 products) can't compress into a phone width without
+     squishing the product names. Scroll is the standard pattern
+     for comparison tables; -webkit-overflow-scrolling keeps it
+     momentum-y on iOS Safari. */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   background: var(--bg);
 }
 .comparison-table table {
   width: 100%;
+  /* Force the table to keep its full width even when the container
+     scrolls — without this, the table collapses to viewport width
+     and the columns squish anyway. */
+  min-width: 560px;
   border-collapse: collapse;
   font-size: 15px;
 }
@@ -497,6 +507,24 @@ section .sub {
      image-first reads more naturally as a caption pattern. */
   .feature-row-reverse .feature-grid > .feature-art {
     order: 0;
+  }
+
+  /* Comparison table: tighter type and padding so more of the
+     560-px-min table is visible without scrolling, and so the
+     scroll cue (when it does scroll) feels less like overflow. */
+  .comparison-table table {
+    font-size: 14px;
+  }
+  .comparison-table thead th,
+  .comparison-table tbody th,
+  .comparison-table tbody td {
+    padding: 10px 12px;
+  }
+  /* Slightly narrower label column on mobile gives the product
+     columns more room for "Zhongwen Dictionary" / "Language
+     Reactor" before they wrap awkwardly. */
+  .comparison-table tbody th {
+    width: 34%;
   }
 }
 
