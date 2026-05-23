@@ -67,6 +67,20 @@ HanziKey bundles the following open-source data:
 This data is bundled with the app and used locally. No external
 network requests are made to retrieve or update it.
 
+## Website analytics
+
+This website (hanzikey.com) uses **Cloudflare Web Analytics** to count
+page views and identify referring sites — useful for understanding
+where visitors find HanziKey. The service is cookieless, does not store
+IP addresses, does not fingerprint visitors, and collects no personal
+data.
+
+To be unambiguous: this analytics applies to the **website only**.
+**The HanziKey macOS app itself contains no analytics, telemetry,
+crash reporting, or tracking of any kind.** The app does not make
+network calls of its own beyond Apple's one-time language-pack
+download (handled by macOS, not HanziKey).
+
 ## Changes to this policy
 
 If this policy ever changes, the new version will be posted at this
