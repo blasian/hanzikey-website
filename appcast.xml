@@ -6,22 +6,6 @@
     <description>HanziKey software updates</description>
     <language>en</language>
 
-      <item>
-        <title>Test: 99.0-test</title>
-        <pubDate>Fri, 05 Jun 2026 14:51:41 -0700</pubDate>
-        <description><![CDATA[
-          <ul>
-            <li>Test Release</li>
-          </ul>
-        ]]></description>
-        <sparkle:version>15</sparkle:version>
-        <sparkle:shortVersionString>99.0</sparkle:shortVersionString>
-        <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
-        <enclosure url="https://github.com/blasian/hanzikey-releases/releases/download/v99.0-test/HanziKey.dmg"
-                   sparkle:edSignature="g2RpOSSO1pkflRqd0HOq8YoS6k5aU+RQX/5GGRHKm5DzeAbHis/Q/9gsPLsCYQrWos7BBC+XEOHqcYb5arl2Ag==" length="7385522"
-                   type="application/octet-stream"/>
-      </item>
-
     <!--
       Add a new <item> for each release. Template:
 
