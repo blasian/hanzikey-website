@@ -7,18 +7,18 @@
     <language>en</language>
 
       <item>
-        <title>Version 99.0-test</title>
-        <pubDate>Fri, 05 Jun 2026 14:30:12 -0700</pubDate>
+        <title>Test: 99.0-test</title>
+        <pubDate>Fri, 05 Jun 2026 14:51:41 -0700</pubDate>
         <description><![CDATA[
           <ul>
-            <li>Describe changes here</li>
+            <li>Test Release</li>
           </ul>
         ]]></description>
         <sparkle:version>14</sparkle:version>
         <sparkle:shortVersionString>99.0</sparkle:shortVersionString>
         <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
         <enclosure url="https://github.com/blasian/hanzikey-releases/releases/download/v99.0-test/HanziKey.dmg"
-                   sparkle:edSignature="yS4dkmMof9iAB3vaj/hwWmsuE7aigAQ3RmCTmLFCiOAvLtcoBpAWN9TALMLs76xJ8XTqG4eVUX2EaP6txgT7AA==" length="7385789"
+                   sparkle:edSignature="g2RpOSSO1pkflRqd0HOq8YoS6k5aU+RQX/5GGRHKm5DzeAbHis/Q/9gsPLsCYQrWos7BBC+XEOHqcYb5arl2Ag==" length="7385522"
                    type="application/octet-stream"/>
       </item>
 
