@@ -14,7 +14,7 @@
             <li>Test Release</li>
           </ul>
         ]]></description>
-        <sparkle:version>14</sparkle:version>
+        <sparkle:version>15</sparkle:version>
         <sparkle:shortVersionString>99.0</sparkle:shortVersionString>
         <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
         <enclosure url="https://github.com/blasian/hanzikey-releases/releases/download/v99.0-test/HanziKey.dmg"
