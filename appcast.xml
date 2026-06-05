@@ -1,0 +1,38 @@
+<?xml version="1.0" standalone="yes"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>HanziKey</title>
+    <link>https://hanzikey.com/appcast.xml</link>
+    <description>HanziKey software updates</description>
+    <language>en</language>
+
+    <!--
+      Add a new <item> for each release. Template:
+
+      <item>
+        <title>Version X.Y.Z</title>
+        <pubDate>Mon, 01 Jan 2026 12:00:00 -0800</pubDate>
+        <description><![CDATA[
+          <p>What's new:</p>
+          <ul>
+            <li>Change one</li>
+            <li>Change two</li>
+          </ul>
+        ]]></description>
+        <sparkle:version>BUILD_NUMBER</sparkle:version>
+        <sparkle:shortVersionString>X.Y.Z</sparkle:shortVersionString>
+        <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+        <enclosure url="https://github.com/blasian/hanzikey-releases/releases/download/vX.Y.Z/HanziKey.dmg"
+                   length="BYTES_FROM_SIGN_UPDATE"
+                   type="application/octet-stream"
+                   sparkle:edSignature="ED_SIGNATURE_FROM_SIGN_UPDATE"/>
+      </item>
+
+      `length` and `sparkle:edSignature` come from running
+        ./.sparkle-tools/bin/sign_update HanziKey.dmg
+      on the signed+notarized DMG. The script prints both ready to
+      paste in.
+    -->
+
+  </channel>
+</rss>

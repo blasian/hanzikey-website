@@ -10,6 +10,13 @@ defaults:
       path: ""
     values:
       layout: default
+  # Sparkle's appcast.xml is served as-is. Without this override
+  # Jekyll would wrap the XML in the default layout (HTML <head>
+  # + <body>) and Sparkle would fail to parse it.
+  - scope:
+      path: "appcast.xml"
+    values:
+      layout: null
 
 # Don't process these as Jekyll content.
 exclude:
