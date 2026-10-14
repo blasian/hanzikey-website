@@ -34,5 +34,32 @@
       paste in.
     -->
 
+    <item>
+      <title>Version 3.0.1</title>
+      <pubDate>Wed, 14 Oct 2026 13:53:15 -0700</pubDate>
+      <description><![CDATA[
+        <p>A polish release focused on Passage mode: lookups land where you're reading, the whole window moves where you want it, and long passages don't force you to scroll past the breakdown to see the translation.</p>
+        <p><strong>What's new</strong></p>
+        <ul>
+          <li>Source line breaks are preserved in Passage mode — dialog turns, paragraph splits, and multi-line subtitles render on their own rows instead of flow-wrapping together.</li>
+          <li>Click any word in a captured passage for an inline popup with its pinyin and definition — no more scrolling to a definitions list at the bottom.</li>
+          <li>English translation pinned at the top in Passage mode so long passages don't require scrolling past the breakdown.</li>
+          <li>Live mode is off by default on new captures. Click the Live toggle for subtitles and other live-updating content.</li>
+          <li>Popups are now draggable — grab any empty area of the header to move the window.</li>
+          <li>Pronounce button added to the hover popover's header row.</li>
+        </ul>
+        <p><strong>Fixes</strong></p>
+        <ul>
+          <li>Fixed a stuck translation spinner in Live mode where silent rescan ticks were invalidating in-flight translations.</li>
+        </ul>
+      ]]></description>
+      <sparkle:version>16</sparkle:version>
+      <sparkle:shortVersionString>3.0.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/blasian/hanzikey-releases/releases/download/v3.0.1/HanziKey.dmg"
+                 sparkle:edSignature="xhS9mQ35Pcnr2IU7Bchh6/QnideJQNPeBLCOrT2x3W6/k4LfI33iUhsvNSmd93s3YWnktu0z3mvCVlsssun8Bw==" length="7445341"
+                 type="application/octet-stream"/>
+    </item>
+
   </channel>
 </rss>
